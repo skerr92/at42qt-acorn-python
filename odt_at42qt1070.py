@@ -119,13 +119,11 @@ class AT42QT1070:
         self._buffer = bytearray(2)
         self.reset()
 
-
     def _write_register_byte(self, register, value):
         # Write a byte value to the specifier register address.
         # MPR121 must be put in Stop Mode to write to most registers
         with self._i2c:
             self._i2c.write(bytes([register, value]))
-
 
     def _read_register_bytes(self, register, result, length=None):
         # Read the specified register address and fill the specified result byte
@@ -147,30 +145,25 @@ class AT42QT1070:
         # Set calibrate device.
         self._write_register_byte(AT42QT107_CAL, 0x01)
 
-
-    @property
     def touched(self):
         """Return touch state of all pins as a 12-bit value where each bit
         represents a pin, with a value of 1 being touched and 0 not being touched.
         """
         self._read_register_bytes(AT42QT107_DETECT_STATUS, self._buffer)
-        return self._buffer[0]
+        return self._buffer[0] & 0xf
 
-    @property
     def this_key_touched(self, this_key):
         """ Return buffer containing values of key touch status. values 0-127
         bit 7 is reserved.
         """
         self._read_register_bytes(AT42QT107_KEY_STATUS, self._buffer)
-        return self._buffer[this_key]
+        return self._buffer[this_key] & 0xf
 
-    @property
     def set_lowpower(self, value):
         """Write to the Low Power Mode Register
         """
         self._write_register_byte(AT42QT107_LP, value)
 
-    @property
     def set_all_neg_threshold(self, neg_val):
         """Write to negative threshold register
         """
@@ -182,7 +175,6 @@ class AT42QT1070:
         self._write_register_byte(AT42QT107_NTHR_K5, neg_val)
         self._write_register_byte(AT42QT107_NTHR_K6, neg_val)
 
-    @property
     def set_key_neg_threshold(self, key, neg_val):
         """Write the negative threshold value for a specific key 0-6
         """
