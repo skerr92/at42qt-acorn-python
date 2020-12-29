@@ -1,5 +1,4 @@
-# At42QT1070 capacitive touch breakout driver.  Port of Raspberry Pi/BeagleBone Black
-# code from:
+# AT42QT1070 capacitive touch breakout driver.
 # Author: Seth Kerr
 # License: MIT License (https://opensource.org/licenses/MIT)
 
@@ -8,7 +7,7 @@
 ====================================================
 CircuitPython driver for the AT42QT1070 capacitive touch acorn.
 See usage in the examples/simpletest.py file.
-* Author(s): Tony DiCola
+* Author(s): Seth Kerr
 Implementation Notes
 --------------------
 **Hardware:**
