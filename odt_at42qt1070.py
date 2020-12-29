@@ -1,6 +1,6 @@
-# MPR121 capacitive touch breakout driver.  Port of Raspberry Pi/BeagleBone Black
-# code from: https://github.com/adafruit/Adafruit_Python_MPR121/
-# Author: Tony DiCola
+# At42QT1070 capacitive touch breakout driver.  Port of Raspberry Pi/BeagleBone Black
+# code from:
+# Author: Seth Kerr
 # License: MIT License (https://opensource.org/licenses/MIT)
 
 """
@@ -111,7 +111,7 @@ AT42QT107_MAX_ON_DUR = (0x37) # maximum on duration
 
 
 
-class MPR121:
+class AT42QT1070:
     """Driver for the AT42QT1070 capacitive touch breakout board."""
 
     def __init__(self, i2c, address=AT42QT1070_I2CADDR_DEFAULT):
@@ -119,12 +119,6 @@ class MPR121:
         self._buffer = bytearray(2)
         self.reset()
 
-
-    @property
-    def touched_pins(self):
-        """A tuple of touched state for all pins."""
-        touched = self.key_touched()
-        return tuple([bool(touched >> i & 0x01) for i in range(7)])
 
     def _write_register_byte(self, register, value):
         # Write a byte value to the specifier register address.
@@ -160,15 +154,15 @@ class MPR121:
         represents a pin, with a value of 1 being touched and 0 not being touched.
         """
         self._read_register_bytes(AT42QT107_DETECT_STATUS, self._buffer)
-        return self._buffer & 0xF
+        return self._buffer[0]
 
     @property
-    def key_touched(self):
+    def this_key_touched(self, this_key):
         """ Return buffer containing values of key touch status. values 0-127
         bit 7 is reserved.
         """
         self._read_register_bytes(AT42QT107_KEY_STATUS, self._buffer)
-        return self._buffer & 0xF
+        return self._buffer[this_key]
 
     @property
     def set_lowpower(self, value):
