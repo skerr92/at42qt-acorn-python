@@ -1,4 +1,4 @@
-![Upload Python Package](https://github.com/skerr92/at42qt-acorn-python/workflows/Upload%20Python%20Package/badge.svg)
+![PyPI Release](https://github.com/skerr92/at42qt-acorn-python/workflows/Upload%20Python%20Package/badge.svg)
 # Circuitpython driver library for AT42QT1070 Capacitive Touch Sensor
 
 This is the python driver library for the AT42QT1070 Acorn by Oak Development Technologies.
