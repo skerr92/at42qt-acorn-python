@@ -161,14 +161,22 @@ class AT42QT1070:
     def set_lowpower(self, value):
         """Write to the Low Power Mode Register
         """
-        if value < 0:
+        try:
+            if value < 0:
+                raise ValueError
+            break
+        except ValueError:
             print('low power value should be between 0 and 255')
         self._write_register_byte(AT42QT107_LP, value)
 
     def set_all_neg_threshold(self, neg_val):
         """Write to negative threshold register
         """
-        if neg_val <= 0:
+        try:
+            if neg_val <= 0:
+                raise ValueError
+            break
+        except ValueError:
             print('negative threshold value should be greater than 0 and non-negative')
         self._write_register_byte(AT42QT107_NTHR_K0, neg_val)
         self._write_register_byte(AT42QT107_NTHR_K1, neg_val)
@@ -181,10 +189,20 @@ class AT42QT1070:
     def set_key_neg_threshold(self, key, neg_val):
         """Write the negative threshold value for a specific key 0-6
         """
-        if key < 0 or key > 6:
+        try:
+            if key < 0 or key > 6:
+                raise ValueError 
+            break
+        except ValueError:
             print('Key should be from 0 to 6 only')
-        if neg_val <= 0:
+
+        try:
+            if neg_val <= 0:
+                raise ValueError
+            break
+        except ValueError:
             print('negative threshold value should be greater than 0 and non-negative')
+
         if key == 0:
             self._write_register_byte(AT42QT107_NTHR_K0, neg_val)
         if key == 1:
