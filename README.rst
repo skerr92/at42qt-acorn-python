@@ -1,21 +1,21 @@
-# Circuitpython driver library for AT42QT1070 Capacitive Touch Sensor
-
+**Circuitpython driver library for AT42QT1070 Capacitive Touch Sensor**
+=======================================================================
 This is the python driver library for the AT42QT1070 Acorn by Oak Development Technologies.
 
-# Dependencies
-
+**Dependencies**
+----------------
 The Adafruit Bus Device Library is required.
 
-# Examples
-
+**Examples**
+------------
 Example uses of the driver code can be found under the Example folder when available.
 
-# Contributing
-
+**Contributing**
+----------------
 Open an issue if you would like to add support for features or functionality not currently implemented.
 
-# Questions?
-
+**Questions?**
+--------------
 Email hello@oakdev.tech with any questions you have or simply open an issue.
 
-Licensed under MIT
+*Licensed under MIT*
