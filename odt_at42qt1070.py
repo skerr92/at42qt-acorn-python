@@ -120,14 +120,12 @@ class AT42QT1070:
 
     def _write_register_byte(self, register, value):
         # Write a byte value to the specifier register address.
-        # MPR121 must be put in Stop Mode to write to most registers
         with self._i2c:
             self._i2c.write(bytes([register, value]))
 
     def _read_register_bytes(self, register, result, length=None):
         # Read the specified register address and fill the specified result byte
-        # array with result bytes.  Make sure result buffer is the desired size
-        # of data to read.
+        # array with result bytes.
         if length is None:
             length = len(result)
         with self._i2c:
@@ -139,7 +137,7 @@ class AT42QT1070:
         # Write to the reset register.
         self._write_register_byte(AT42QT107_RESET, 0x01)
         time.sleep(
-            0.001
+            1
         )  # This 1ms delay here probably isn't necessary but can't hurt.
         # Set calibrate device.
         self._write_register_byte(AT42QT107_CAL, 0x01)
