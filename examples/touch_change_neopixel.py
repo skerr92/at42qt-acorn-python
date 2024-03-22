@@ -10,7 +10,7 @@ Example showing how to use the AT42QT1070 touch sensor!
 import board
 import busio
 import time  # pylint: disable=C0411
-import odt_at42qt1070
+import odt-at42qt1070-python
 import neopixel  # pylint: disable=C0411
 
 num_pixels = 1  # pylint: disable=C0103
@@ -23,7 +23,7 @@ pixels = neopixel.NeoPixel(board.NEOPIXEL, num_pixels, brightness=0.3, auto_writ
 
 i2c = busio.I2C(board.SCL, board.SDA)
 
-qtouch = odt_at42qt1070.AT42QT1070(i2c)
+qtouch = odt-at42qt1070-python.AT42QT1070(i2c)
 
 while True:
     if qtouch.touched():
