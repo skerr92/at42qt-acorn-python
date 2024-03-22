@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Copyright (c) 2023 Seth Kerr for Oak Development Technologies
+#
+# SPDX-License-Identifier: MIT
 ![PyPI Release](https://github.com/skerr92/at42qt-acorn-python/workflows/Upload%20Python%20Package/badge.svg)
 # Circuitpython driver library for AT42QT1070 Capacitive Touch Sensor
 

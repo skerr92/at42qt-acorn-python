@@ -1,2 +1,5 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024 Seth Kerr for Oak Development Technologies
+#
+# SPDX-License-Identifier: MIT
 Adafruit-Blinka
 adafruit-circuitpython-busdevice>=2.2.5
