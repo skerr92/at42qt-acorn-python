@@ -11,7 +11,7 @@ requires = [
 ]
 
 [project]
-name = "odt-at42qt1070-python"
+name = "odt_at42qt1070_python"
 description = "A library for using the AT42QT1070 i2c touch sensor."
 version = "0.0.0+auto.0"
 readme = "README.rst"
@@ -42,7 +42,7 @@ dynamic = ["dependencies", "optional-dependencies"]
 [tool.setuptools]
 # TODO: IF LIBRARY FILES ARE A PACKAGE FOLDER,
 #       CHANGE `py_modules = ['...']` TO `packages = ['...']`
-py-modules = ["odt-at42qt1070-python"]
+py-modules = ["odt_at42qt1070_python"]
 
 [tool.setuptools.dynamic]
 dependencies = {file = ["requirements.txt"]}
