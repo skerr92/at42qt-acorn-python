@@ -1,6 +1,6 @@
-# AT42QT1070 capacitive touch breakout driver.
-# Author: Seth Kerr
-# License: MIT License (https://opensource.org/licenses/MIT)
+# SPDX-FileCopyrightText: Copyright (c) 2023 Seth Kerr for Oak Development Technologies
+#
+# SPDX-License-Identifier: MIT
 
 """
 `odt_at42qt1070`
